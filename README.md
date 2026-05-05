@@ -4,17 +4,16 @@
 
 <h1>Network Automation Toolkit</h1>
 
-<p><strong>The Institutional-Grade Platform for Global Network Orchestration, Multi-Vendor Automation, and NetDevOps Acceleration</strong></p>
+<p><strong>The Institutional-Grade Platform for Global Network Orchestration, Multi-Vendor Automation, and NetDevOps Acceleration.</strong></p>
 
-[![Standard: NetDevOps--Alliance](https://img.shields.io/badge/Standard-NetDevOps--Alliance-blue.svg?style=for-the-badge&labelColor=000000)]()
-[![Status: Production--Ready](https://img.shields.io/badge/Status-Production--Ready-blue.svg?style=for-the-badge&labelColor=000000)]()
+[![Standard: NetDevOps-Excellence](https://img.shields.io/badge/Standard-NetDevOps--Excellence-blue.svg?style=for-the-badge&labelColor=000000)]()
+[![Status: Production--Ready](https://img.shields.io/badge/Status-Production--Ready-emerald.svg?style=for-the-badge&labelColor=000000)]()
 [![Automation: Intent--Based](https://img.shields.io/badge/Automation-Intent--Based-gold.svg?style=for-the-badge&labelColor=000000)]()
-[![Infrastructure: Multi--Vendor](https://img.shields.io/badge/Infrastructure-Multi--Vendor-emerald.svg?style=for-the-badge&labelColor=000000)]()
 
 <br/>
 
 > **"The network is the computer; Automation is the OS."** 
-> Network Automation Toolkit is a flagship solution for Network Engineers, NetDevOps Practitioners, and Infrastructure Leaders. By orchestrating multi-vendor configurations (Cisco, Juniper, Arista), automated compliance validation, and zero-trust policy enforcement, it enables organizations to achieve institutional-scale network agility and security.
+> **Network Automation Toolkit** is an enterprise-grade platform designed to provide a secure, measurable, and highly automated foundation for global network operations. It orchestrates the complex lifecycle of network infrastructure—from multi-vendor intent-based orchestration and CI/CD-driven provisioning to automated IPAM and unified NetDevOps governance.
 
 </div>
 
@@ -22,626 +21,263 @@
 
 ## 🏛️ Executive Summary
 
-The **Network Automation Toolkit Platform** is a specialized flagship solution designed for Global Enterprises, Network Operations Centers (NOCs), and Managed Service Providers. As organizations move toward hybrid and multi-cloud architectures, the complexity of managing fragmented network infrastructure (Routers, Switches, Firewalls, VPCs) becomes an operational bottleneck. This platform addresses these challenges using a cloud-native, "automation-first" framework.
+Fragmented network configurations and manual CLI-based management are strategic operational liabilities; lack of centralized network automation is a primary barrier to organizational agility. Organizations fail to achieve rapid network scaling not because of a lack of hardware, but because of fragmented configuration standards, lack of automated validation, and an inability to orchestrate network intent with operational precision.
 
-This platform provides a **Unified Network Control Plane**. It demonstrates how to orchestrate institutional NetDevOps—using **FastAPI**, **React 18**, **Netmiko**, and **Terraform**—to create a "Network-as-Code" culture. By providing **Intent-Based Orchestration**, **Configuration Drift Detection**, **Compliance Validation**, and **Automated Rollbacks**, it enables organizations to move from "Manual CLI Configuration" to "Automated Network Lifecycle Management."
-
----
-
-## 📉 The "Network Fragility" Problem
-
-Enterprises scaling manual network operations face existential challenges:
-- **Configuration Fragmentation**: Disparate CLI commands across vendors lead to inconsistent configurations and high MTTR (Mean Time to Resolution).
-- **Compliance Blindness**: Lack of automated policy validation results in security vulnerabilities and regulatory non-compliance.
-- **Change Risk**: Manual configuration changes are the #1 cause of network outages, with limited ability to perform rapid, coordinated rollbacks.
-- **Topology Opacity**: Difficulty in maintaining real-time topology maps across physical and virtual (cloud) networks.
+This platform provides the **Automation Intelligence Plane**. It implements a complete **Enterprise NetDevOps-as-Code Framework**, enabling Network and Platform teams to manage global infrastructure as a first-class citizen. By automating the provisioning of complex network fabrics and orchestrating real-time intent validation, we ensure that every organizational asset—from core datacenter switches to multi-cloud transit gateways—is automated by default, audited for history, and strictly aligned with institutional NetDevOps frameworks.
 
 ---
 
-## 🚀 Strategic Drivers & Business Outcomes
+## 📐 Architecture Storytelling: Principal Reference Models
 
-### 🎯 Strategic Drivers
-- **Standardized Multi-Vendor Abstraction**: Establishing a common API and template model for Cisco, Juniper, Arista, and Cloud Networking.
-- **Configuration-as-Code (CaC)**: Moving desired network states into version control (Git) for automated deployment and auditability.
-- **Policy-Based Governance**: Enforcing network security and compliance rules through automated validation engines.
+### 1. Principal Architecture: Global Network Automation & Intent-Based Orchestration Plane
+This diagram illustrates the end-to-end flow from network intent definition and multi-vendor abstraction to automated provisioning, validation, and institutional NetDevOps auditing.
 
-### 💰 Business Outcomes
-- **80% Reduction in Provisioning Time**: Enabling self-service network provisioning through automated workflows and API orchestration.
-- **Zero-Drift Infrastructure**: Ensuring that physical device states always match the "Source of Truth" in Git.
-- **Institutional Reliability**: Minimizing human error and ensuring 100% rollback capability for all network changes.
+```mermaid
+graph LR
+    %% Subgraph Definitions
+    subgraph IntentDefinition["Network Intent & Desired State"]
+        direction TB
+        YAML["YAML/JSON Intent Specs"]
+        Templates["Jinja2 Device Templates"]
+        Policy["Compliance Baselines (NIST)"]
+    end
+
+    subgraph IntelligenceEngine["Automation Intelligence Hub"]
+        direction TB
+        API["FastAPI Orchestration Gateway"]
+        Abstraction["Multi-Vendor Abstraction Layer"]
+        Validator["Pre/Post-Check Engine"]
+        Orchestrator["Task & Workflow Scheduler"]
+    end
+
+    subgraph ExecutionPlane["Distributed Execution Fleet"]
+        direction TB
+        CiscoDriver["Cisco Nexus/IOS Workers"]
+        JuniperDriver["Junos/SRX Workers"]
+        CloudDriver["AWS/Azure/GCP Workers"]
+    end
+
+    subgraph OperationsHub["Institutional NetDevOps Hub"]
+        direction TB
+        Scorecard["Automation Maturity Score"]
+        Analytics["Change Success & MTTR Stats"]
+        Audit["Forensic Automation Metadata Lake"]
+    end
+
+    subgraph DevOps["NetDevOps-as-Code Orchestration"]
+        direction TB
+        Git["GitOps Config Repository"]
+        CI["Testing & Linting Pipeline"]
+        ChatOps["ChatOps Approval Hub"]
+    end
+
+    %% Flow Arrows
+    IntentDefinition -->|1. Submit Intent| API
+    API -->|2. Resolve Abstraction| Abstraction
+    Abstraction -->|3. Validate Intent| Validator
+    Validator -->|4. Orchestrate Tasks| Orchestrator
+    
+    Orchestrator -->|5. Execute Change| ExecutionPlane
+    ExecutionPlane -->|6. Verify State| Validator
+    Validator -->|7. Notify Result| ChatOps
+    
+    API -->|8. Visualize Health| Scorecard
+    Scorecard -->|9. Track Success| Analytics
+    Scorecard -->|10. Record Event| Audit
+    
+    Git -->|11. Trigger Change| CI
+    CI -->|12. Validate & Push| API
+    Audit -->|13. Improve Templates| IntentDefinition
+
+    %% Styling
+    classDef intent fill:#f5f5f5,stroke:#616161,stroke-width:2px;
+    classDef intel fill:#fffde7,stroke:#fbc02d,stroke-width:2px;
+    classDef execution fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
+    classDef ops fill:#ede7f6,stroke:#311b92,stroke-width:2px;
+    classDef devops fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+
+    class IntentDefinition intent;
+    class IntelligenceEngine intel;
+    class ExecutionPlane execution;
+    class OperationsHub ops;
+    class DevOps devops;
+```
+
+### 2. The Network Automation Lifecycle Flow
+The continuous path of a network change from initial intent definition and validation to active provisioning, monitoring, and institutional forensic auditing.
+
+```mermaid
+graph LR
+    Define["Define Intent"] --> Validate["Validate Logic"]
+    Validate --> Provision["Provision State"]
+    Provision --> Monitor["Monitor Health"]
+    Monitor --> Audit["Forensic Audit"]
+```
+
+### 3. CI/CD for Network Infrastructure
+Strategically integrating network configuration changes into a unified CI/CD pipeline, ensuring that every firewall rule and routing update is linted, tested, and approved before deployment.
+
+```mermaid
+graph LR
+    PR["Git Pull Request"] --> Lint["Config Linting"]
+    Lint --> Lab["Virtual Lab Test"]
+    Lab --> Approve["Peer Review/ChatOps"]
+    Approve --> Deploy["Automated Push"]
+```
+
+### 4. IPAM & Subnet Orchestration Flow
+Automating the management of the global IP address space (IPv4/IPv6), providing a single source of truth for CIDR allocation, subnet reservation, and DHCP/DNS synchronization.
+
+```mermaid
+graph LR
+    Req["Spoke Request"] --> IPAM["IPAM Registry Hub"]
+    IPAM -->|Allocate| Subnet["/24 Subnet Block"]
+    Subnet --> Sync["Sync to DNS/DHCP"]
+    Sync --- Cloud["AWS/Azure Environment"]
+```
+
+### 5. Transit Gateway & Peering Automation
+Orchestrating the complex lifecycle of multi-cloud transit gateways, VPC peering, and site-to-site VPNs through automated API calls and infrastructure-as-code updates.
+
+```mermaid
+graph TD
+    Hub["Network Hub"] -->|TGW Attach| SpokeA["App Spoke A"]
+    Hub -->|VNet Peering| SpokeB["App Spoke B"]
+    Hub --- Automator["Connectivity Engine"]
+```
+
+### 6. Self-Healing Network Remediation
+Automatically responding to network failures—such as routing loops, port exhaustion, or BGP flapping—by triggering pre-validated remediation workflows and rolling back unsafe changes.
+
+```mermaid
+graph LR
+    Detect["Anomaly Detected"] --> Analyze["Analyze Impact"]
+    Analyze -->|Critical| Rollback["Auto-Rollback State"]
+    Analyze -->|Known Fix| Remed["Auto-Healing Runbook"]
+    Remed --- Status["Service Restored"]
+```
+
+### 7. Institutional Network Automation Scorecard
+Grading organizational performance based on key indicators: Automation Coverage (CLI vs API), Change Success Rate, and Mean Time to Provision (MTTP).
+
+```mermaid
+graph TD
+    Post["NetDevOps: 94%"] --> Risk["Manual Debt: 6%"]
+    Post --- C1["Success Rate (99%)"]
+    Post --- C2["Provision Speed (Min)"]
+```
+
+### 8. Identity & RBAC for NetDevOps Governance
+Managing fine-grained access to automation workers, device templates, and audit logs between Network Engineers, Automation Developers, and Compliance Leads.
+
+```mermaid
+graph TD
+    Engineer["Network Engineer"] --> Hub["Manage Network State"]
+    Dev["Automation Dev"] --> Templates["Manage Templates"]
+    Compliance["Compliance Lead"] --> Audit["Verify Audit Trails"]
+```
+
+### 9. IaC Deployment: Network-as-Code Framework
+Using modular Terraform to deploy and manage the versioned distribution of the automation hubs, execution workers, and forensic metadata lakes.
+
+```mermaid
+graph LR
+    HCL["Infrastructure Code"] --> TF["Terraform Apply"]
+    TF --> Engine["Automation Control Plane"]
+    Engine --> Workers["Multi-Vendor Workers"]
+```
+
+### 10. AIOps Network Intent Validation Flow
+Using advanced logic engines to identify conflicts between the "Desired Intent" and the "Live Actual Config," flagging unauthorized manual changes and ensuring 100% drift resolution.
+
+```mermaid
+graph LR
+    Intent["Desired State (Git)"] --> Compare["Intent Comparator"]
+    Live["Actual State (Device)"] --> Compare
+    Compare -->|Mismatch| Resolve["Auto-Remediation"]
+```
+
+### 11. Metadata Lake for Forensic Automation Audit
+Storing long-term records of every automated change, validation result, and device response for institutional record-keeping, compliance auditing, and post-incident investigation.
+
+```mermaid
+graph LR
+    Change["Automation Event"] --> Stream["Forensic Stream"]
+    Stream --> Lake["NetDevOps Metadata Lake"]
+    Lake --> Trends["Automation & Agility Trends"]
+```
 
 ---
 
-## 📐 Architecture Storytelling: 80+ Advanced Diagrams
-
-### 1. Executive Network Automation Architecture
-*The global flow of network intent from Git to Device.*
-```mermaid
-graph TD
-    subgraph "Intent & Governance"
-        Git[Config Source of Truth]
-        Policy[Compliance Policy Engine]
-    end
-
-    subgraph "Automation Hub"
-        API[Automation API]
-        Engine[Automation Engine]
-        Worker[Provisioning Workers]
-    end
-
-    subgraph "Multi-Vendor Fabric"
-        Cisco[Cisco Nexus/Catalyst]
-        Juniper[Juniper MX/SRX]
-        Cloud[AWS VPC / Azure VNet]
-    end
-
-    Git --> API
-    Policy --> API
-    API --> Engine
-    Engine --> Worker
-    Worker --> Cisco
-    Worker --> Juniper
-    Worker --> Cloud
-```
-
-### 2. Configuration Apply & Validation Flow
-*The lifecycle of a single network configuration change.*
-```mermaid
-sequenceDiagram
-    participant Git as Git Repo
-    participant Hub as Automation Hub
-    participant Dev as Network Device
-    participant Test as Validation Engine
-
-    Git->>Hub: Webhook: New Config (YAML)
-    Hub->>Hub: Generate CLI Template (Jinja2)
-    Hub->>Dev: Apply Config (SSH/API)
-    Dev-->>Hub: Ack (Success)
-    Hub->>Test: Run Post-Check Validation
-    Test->>Dev: Verify State (BGP/VLAN/ACL)
-    Test-->>Hub: Pass / Fail
-    Note over Hub: Trigger Rollback if Fail
-```
-
-### 3. Drift Detection State Machine
-```mermaid
-stateDiagram-v2
-    [*] --> Scheduled: Every 15m
-    Scheduled --> Capture: Fetch Running Config
-    Capture --> Compare: Diff with Git (Truth)
-    Compare --> InSync: No Changes
-    Compare --> Drift: Changes Detected
-    Drift --> Alert: Trigger SRE Notification
-    Drift --> Remediate: Auto-Apply Truth
-```
-
-### 4. Zero Trust Policy Evaluation
-```mermaid
-graph LR
-    Req[Network Access Request] --> Policy[Policy Engine]
-    Policy --> RBAC[Role-Based Check]
-    RBAC --> ABAC[Attribute-Based Check]
-    ABAC --> Result{ALLOW / DENY}
-    Result --> ACL[Generate Device ACL]
-    ACL --> Apply[Apply to Boundary FW]
-```
-
-### 5. Multi-Cloud Network Topology
-```mermaid
-graph TD
-    subgraph "On-Prem Datacenter"
-        Core[Core Switch]
-    end
-    subgraph "Cloud: AWS"
-        VPC[VPC / TGW]
-    end
-    subgraph "Cloud: Azure"
-        VNet[VNet / ER]
-    end
-
-    Core <-->|DirectConnect| VPC
-    Core <-->|ExpressRoute| VNet
-```
-
-### 6. Automated Rollback Flow
-```mermaid
-graph LR
-    Change[Failed Change] --> Trigger[Rollback Trigger]
-    Trigger --> Fetch[Fetch Last Good Config]
-    Fetch --> Apply[Revert Device State]
-    Apply --> Verify[Post-Rollback Verify]
-```
-
-### 7. Device Discovery Pipeline
-```mermaid
-graph LR
-    Scan[Network Scan] --> Detect[Identify Device/OS]
-    Detect --> Inventory[Update Inventory DB]
-    Inventory --> Hub[Ready for Automation]
-```
-
-### 8. Global Audit & Compliance Reporting
-```mermaid
-graph LR
-    Audit[Config Audit] --> Rules[Compliance Rules]
-    Rules --> Report[Executive Summary]
-    Report --> Board[Security Review]
-```
-
-### 9. Multi-Vendor Abstraction Layer
-```mermaid
-graph TD
-    UI[Web UI] --> API[Generic API]
-    API --> Driver[Vendor Driver Manager]
-    Driver --> CiscoD[Cisco Driver]
-    Driver --> JunosD[Junos Driver]
-```
-
-### 10. Executive Net.Ops Dashboard
-```mermaid
-graph LR
-    API[Backend API] --> React[Vite / React Hub]
-    React --> Recharts[Visual Analytics]
-    Recharts --> Executive[Infrastructure Insights]
-```
-
-### 11. Network automation flow
-```mermaid
-graph LR
-    N[Netw] --> A[Auto]
-```
-
-### 12. Device discovery flow
-```mermaid
-graph LR
-    D[Devi] --> D[Disc]
-```
-
-### 13. Config apply flow
-```mermaid
-graph LR
-    C[Conf] --> A[Appl]
-```
-
-### 14. Compliance validation flow
-```mermaid
-graph LR
-    C[Comp] --> V[Vali]
-```
-
-### 15. Rollback orchestration flow
-```mermaid
-graph LR
-    R[Roll] --> O[Orch]
-```
-
-### 16. Multi-vendor strategy map
-```mermaid
-graph LR
-    M[Mult] --> V[Vend]
-```
-
-### 17. Drift detection logic
-```mermaid
-graph LR
-    D[Drif] --> D[Dete]
-```
-
-### 18. Policy-as-code flow
-```mermaid
-graph LR
-    P[Poli] --> A[AsCo]
-```
-
-### 19. Network security automation
-```mermaid
-graph LR
-    N[Netw] --> S[Secu]
-```
-
-### 20. Cloud network automation
-```mermaid
-graph LR
-    C[Clou] --> N[Netw]
-```
-
-### 21. Intent-based orchestration
-```mermaid
-graph LR
-    I[Inte] --> O[Orch]
-```
-
-### 22. Zero trust enforcement
-```mermaid
-graph LR
-    Z[Zero] --> T[Trus]
-```
-
-### 23. Configuration templating
-```mermaid
-graph LR
-    C[Conf] --> T[Temp]
-```
-
-### 24. Audit logging flow
-```mermaid
-graph LR
-    A[Audi] --> L[Logg]
-```
-
-### 25. Change management workflow
-```mermaid
-graph LR
-    C[Chan] --> M[Mana]
-```
-
-### 26. Topology mapping logic
-```mermaid
-graph LR
-    T[Topo] --> M[Mapp]
-```
-
-### 27. Device health check
-```mermaid
-graph LR
-    D[Devi] --> H[Heal]
-```
-
-### 28. Infrastructure: Networking
-```mermaid
-graph LR
-    I[Infr] --> N[Netw]
-```
-
-### 29. Infrastructure: Kubernetes
-```mermaid
-graph LR
-    I[Infr] --> K[Kube]
-```
-
-### 30. Infrastructure: Database
-```mermaid
-graph LR
-    I[Infr] --> D[Data]
-```
-
-### 31. Infrastructure: Redis
-```mermaid
-graph LR
-    I[Infr] --> R[Redi]
-```
-
-### 32. Monitoring: Prometheus
-```mermaid
-graph LR
-    M[Moni] --> P[Prom]
-```
-
-### 33. Monitoring: Grafana
-```mermaid
-graph LR
-    M[Moni] --> G[Graf]
-```
-
-### 34. Monitoring: Alerts
-```mermaid
-graph LR
-    M[Moni] --> A[Aler]
-```
-
-### 35. CI/CD: Build pipeline
-```mermaid
-graph LR
-    C[CICD] --> B[Buil]
-```
-
-### 36. CI/CD: Test pipeline
-```mermaid
-graph LR
-    C[CICD] --> T[Test]
-```
-
-### 37. CI/CD: Deploy pipeline
-```mermaid
-graph LR
-    C[CICD] --> D[Depl]
-```
-
-### 38. Frontend: Dashboard
-```mermaid
-graph LR
-    F[Fron] --> D[Dash]
-```
-
-### 39. Frontend: Topology
-```mermaid
-graph LR
-    F[Fron] --> T[Topo]
-```
-
-### 40. Frontend: Compliance
-```mermaid
-graph LR
-    F[Fron] --> C[Comp]
-```
-
-### 41. API: Auth flow
-```mermaid
-graph LR
-    A[API] --> A[Auth]
-```
-
-### 42. API: Device inventory
-```mermaid
-graph LR
-    A[API] --> D[Devi]
-```
-
-### 43. API: Config status
-```mermaid
-graph LR
-    A[API] --> C[Conf]
-```
-
-### 44. API: Compliance report
-```mermaid
-graph LR
-    A[API] --> C[Comp]
-```
-
-### 45. Worker: Discovery
-```mermaid
-graph LR
-    W[Work] --> D[Disc]
-```
-
-### 46. Worker: Configuration
-```mermaid
-graph LR
-    W[Work] --> C[Conf]
-```
-
-### 47. Worker: Validation
-```mermaid
-graph LR
-    W[Work] --> V[Vali]
-```
-
-### 48. Worker: Compliance
-```mermaid
-graph LR
-    W[Work] --> C[Comp]
-```
-
-### 49. Provider: Cisco Nexus
-```mermaid
-graph LR
-    P[Prov] --> C[Cisc]
-```
-
-### 50. Provider: Juniper Junos
-```mermaid
-graph LR
-    P[Prov] --> J[Juni]
-```
-
-### 51. Workflow: Provisioning
-```mermaid
-graph LR
-    W[Work] --> P[Prov]
-```
-
-### 52. Workflow: Rollback
-```mermaid
-graph LR
-    W[Work] --> R[Roll]
-```
-
-### 53. Policy: Security ACL
-```mermaid
-graph LR
-    P[Poli] --> S[Secu]
-```
-
-### 54. Integration: AWS VPC
-```mermaid
-graph LR
-    I[Inte] --> A[AWSv]
-```
-
-### 55. Integration: Azure VNet
-```mermaid
-graph LR
-    I[Inte] --> A[Azur]
-```
-
-### 56. Script: Provision
-```mermaid
-graph LR
-    S[Scri] --> P[Prov]
-```
-
-### 57. Script: Validate
-```mermaid
-graph LR
-    S[Scri] --> V[Vali]
-```
-
-### 58. Script: Rollback
-```mermaid
-graph LR
-    S[Scri] --> R[Roll]
-```
-
-### 59. Security: RBAC flow
-```mermaid
-graph LR
-    S[Secu] --> R[RBAC]
-```
-
-### 60. Security: SSH Vault
-```mermaid
-graph LR
-    S[Secu] --> V[Vaul]
-```
-
-### 61. Metrics tracking: Jobs
-```mermaid
-graph LR
-    M[Metr] --> J[Jobs]
-```
-
-### 62. Metrics tracking: Latency
-```mermaid
-graph LR
-    M[Metr] --> L[Late]
-```
-
-### 63. Network intent map
-```mermaid
-graph LR
-    N[Netw] --> I[Inte]
-```
-
-### 64. KPI tracking: Uptime
-```mermaid
-graph LR
-    K[KPI] --> U[Upti]
-```
-
-### 65. KPI tracking: Compliance
-```mermaid
-graph LR
-    K[KPI] --> C[Comp]
-```
-
-### 66. Optimization roadmap
-```mermaid
-graph LR
-    O[Opti] --> R[Road]
-```
-
-### 67. Value realization
-```mermaid
-graph LR
-    V[Valu] --> R[Real]
-```
-
-### 68. Institutional maturity
-```mermaid
-graph LR
-    I[Inst] --> M[Matu]
-```
-
-### 69. Strategy execution
-```mermaid
-graph LR
-    S[Stra] --> E[Exec]
-```
-
-### 70. Ecosystem map
-```mermaid
-graph LR
-    E[Ecos] --> M[Map]
-```
-
-### 71. Supply chain of intent
-```mermaid
-graph LR
-    S[Supp] --> I[Inte]
-```
-
-### 72. NetDevOps blueprint
-```mermaid
-graph LR
-    N[NetD] --> B[Blue]
-```
-
-### 73. Zero trust model map
-```mermaid
-graph LR
-    Z[Zero] --> M[Map]
-```
-
-### 74. Transformation roadmap
-```mermaid
-graph LR
-    T[Tran] --> R[Road]
-```
-
-### 75. Value realization model
-```mermaid
-graph LR
-    V[Valu] --> R[Real]
-```
-
-### 76. Governance audit trail
-```mermaid
-graph LR
-    G[Govn] --> A[Audi]
-```
-
-### 77. Security RBAC flow
-```mermaid
-graph LR
-    S[Secu] --> R[RBAC]
-```
-
-### 78. Compliance validation
-```mermaid
-graph LR
-    C[Comp] --> V[Vali]
-```
-
-### 79. Network boundary check
-```mermaid
-graph LR
-    N[Netw] --> B[Boun]
-```
-
-### 80. Executive summary hub
-```mermaid
-graph LR
-    E[Exec] --> H[Hub]
-```
+## 🏛️ Core Automation Pillars
+
+1.  **Multi-Vendor Intent Abstraction**: Establishing a unified model for managing Cisco, Juniper, and Cloud platforms.
+2.  **Configuration-as-Code (CaC)**: Shifting network management to version-controlled, collaborative workflows.
+3.  **Automated Pre/Post-Check Validation**: Guaranteeing that every change is safe before it reaches production.
+4.  **Zero-Trust Policy Enforcement**: Automating the deployment of identity-aware network security controls.
+5.  **Self-Healing Network Resiliency**: Reducing downtime through automated incident response and rapid rollbacks.
+6.  **Full Automation Auditability**: Immutable recording of every network change and device interaction for institutional forensics.
 
 ---
 
 ## 🛠️ Technical Stack & Implementation
 
-### Automation & Abstraction Engine
-- **Processing**: Python 3.11+ / FastAPI / Netmiko / REST API.
-- **Abstraction**: Multi-Vendor Driver Model (Cisco, Juniper, Arista, Palo Alto).
-- **Orchestration**: Intent-Based Desired State Engine with Automated Rollbacks.
+### Automation Engine & APIs
+*   **Framework**: Python 3.11+ / FastAPI.
+*   **Abstraction Layer**: Netmiko, Nornir, and Napalm for multi-vendor device interaction.
+*   **Validation Core**: Batfish and custom Pytest-based network validation logic.
+*   **Persistence**: PostgreSQL (Metadata Lake) and Redis (Task Queue).
+*   **Auth Orchestrator**: Federated OIDC/SAML with HashiCorp Vault for secure credential injection.
 
-### Frontend (Net.Ops Hub)
-- **Framework**: React 18 / Vite
-- **Visuals**: Recharts (Automation Success Rates, Device Mix, Compliance Trends).
-- **Theme**: Dark, Blue, and Slate (Institutional NetDevOps Aesthetics).
+### NetDevOps Dashboard (UI)
+*   **Framework**: React 18 / Vite.
+*   **Theme**: Dark, Blue, Slate (Modern high-fidelity operational aesthetic).
+*   **Visualization**: Recharts for automation success trends, device health heatmaps, and MTTP analytics.
 
-### Infrastructure
-- **Cloud**: Multi-Cloud (AWS, Azure, GCP), AWS EKS (Runtime), RDS (Persistence).
-- **IaC**: Terraform (VPC, K8s, RDS, Redis, IAM).
+### Infrastructure & DevOps
+*   **Runtime**: AWS EKS or Azure Kubernetes Service (AKS).
+*   **Connectivity**: Integrated SSH proxying and API gateways for multi-vendor device access.
+*   **IaC**: Modular Terraform for deploying the automation hub and execution distributions.
+
+---
+
+## 🏗️ IaC Mapping (Module Structure)
+
+| Module | Purpose | Real Services |
+| :--- | :--- | :--- |
+| **`infrastructure/auto_hub`** | Central management plane | EKS, PostgreSQL, Redis |
+| **`infrastructure/workers`** | Multi-vendor execution fleet | Python, Netmiko, SSH |
+| **`infrastructure/vault`** | Secure credential management | HashiCorp Vault, KMS |
+| **`infrastructure/auditing`** | Forensic automation sinks | S3, Athena, Quicksight |
 
 ---
 
 ## 🚀 Deployment Guide
 
-### Local Development
+### Local Principal Environment
 ```bash
-# Clone the repository
+# Clone the automation platform
 git clone https://github.com/devopstrio/network-automation-toolkit.git
 cd network-automation-toolkit
 
-# Setup environment
+# Configure environment
 cp .env.example .env
 
-# Launch the network automation mesh
-make up
+# Launch the Automation stack
+make init
+
+# Trigger a mock intent-based provisioning and validation simulation
+make simulate-automation
 ```
+
 Access the NetDevOps Hub at `http://localhost:3000`.
 
 ---
 
 ## 📜 License
 Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+<div align="center">
+  <p>© 2026 Devopstrio. All rights reserved.</p>
+</div>
